@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices &#8212; Open Science Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Open Science Project</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    <center>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices</font><center>
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><center>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices</font><center></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices<center></center></center></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-highlights">Open science highlights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contant">Table Of Contant</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-of-ndwi">2. Theory of NDWI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-used-to-process-raster-data">3. Tools used to process raster data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-data-sources-landsat">4. Satellite data sources - Landsat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-from-usgs-website">4.1 Downloading from USGS website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-amazon-web-services">4.2 Use of Amazon web services</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-access-to-geographic-data">4.3 More access to geographic data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-ndwi-in-arcgis">5. Calculating NDWI in ArcGIS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#center-ndwi-float-band3-band5-float-band3-band5-center"><center><span class="math notranslate nohighlight">\(NDWI = float(Band3 - Band5) / float(Band3 + Band5)\)</span><center></center></center></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-ndwi-in-qgis">6. Calculating NDWI in QGis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generated-results">7. Generated results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-from-arcgis">Results from ArcGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-from-qgis">Results from QGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-area-of-flood-pixels">Total area of flood pixels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#center-total-water-area-number-of-water-pixels-30-m-30-m-center"><center><span class="math notranslate nohighlight">\(Total\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(area\)</span> <span class="math notranslate nohighlight">\(=\)</span> <span class="math notranslate nohighlight">\(number\)</span> <span class="math notranslate nohighlight">\(of\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(pixels\)</span><span class="math notranslate nohighlight">\(*(30 m*30 m)\)</span><center></center></center></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">8. Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references-and-further-reads">10. References and further reads</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="center-documentation-on-working-with-normalized-difference-water-index-in-qgis-and-arcgis-for-flood-monitoring-and-its-higlights-on-open-and-fair-science-practices-font-center">
+<h1><center>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices</font><center><a class="headerlink" href="#center-documentation-on-working-with-normalized-difference-water-index-in-qgis-and-arcgis-for-flood-monitoring-and-its-higlights-on-open-and-fair-science-practices-font-center" title="Permalink to this heading">#</a></h1>
+<p>Mdluli Kolunga Nkosinathi</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/kolunga-m/OSP/HEAD"><img src=https://miro.medium.com/v2/resize:fit:828/0*5dpHfAcfShaBaMky
+    align="left"
+    width="340"/></a></p>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
+<p>Remote sensing has emerged as an  irreplaceable tool for monitoring floods and accessing their impact on the environment. One widely used technique is the Normalized Difference Water Index (NDWI) which uses satellite images to detect and quantify water bodies. This work hopes to highlight also the application of the NDWI in flood monitoring and what emaphasis have been out on open science in such a field. The NDWI utilizes the spectral characteristics of water to seperate its pixels from other land cver types by using the spectral bands and calculates the NDWI to delineates water bodies. Through the use of the NDWI, flooded areas can be identified and the extent of flooded pixels can also be estimated. the accuracy of such a method has been tested world wide by varying researchers for such an exercise. The use of NDWI for flood monitoring also lays out the principles of open science practices through transparent sharing of data, methods and results which helps incubate collaboration and reproducibility which enables researchers to validate findings, compare existing methods and easily build upon existing knowledge.</p>
+</section>
+<section id="open-science-highlights">
+<h2>Open science highlights<a class="headerlink" href="#open-science-highlights" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Interoperable data and tools</p></li>
+<li><p>Access to data</p></li>
+</ul>
+</section>
+<section id="table-of-contant">
+<h2>Table Of Contant<a class="headerlink" href="#table-of-contant" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#introduction"><span class="std std-ref">Introduction</span></a></p></li>
+<li><p><span class="xref myst">Theory of NDWI</span></p></li>
+<li><p><span class="xref myst">Tools used to process raster data</span></p></li>
+<li><p><span class="xref myst">Satellite data sources - Landsat</span></p></li>
+<li><p><span class="xref myst">Calculating NDWI in ArcGIS</span></p></li>
+<li><p><span class="xref myst">Calculating NDWI in QGis</span></p></li>
+<li><p><span class="xref myst">Generated results</span></p></li>
+<li><p><span class="xref myst">Disussion</span></p></li>
+<li><p><span class="xref myst">Conclusion</span></p></li>
+<li><p><span class="xref myst">Further reads</span></p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<span id="id1"></span><h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>Flood monitoring can be regarded as one of the vital aspects of distater management and remote sensing techniques have made gathering of data much easier than insitu observations. As floods are just one of the many occuring natural distasters, their occurance cannot be prevented but loss of life can be prevented by such remote sensing techiques. More information about floods can be found on <a class="reference external" href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fkids.nationalgeographic.com%2Fscience%2Farticle%2Fflood&amp;psig=AOvVaw1be5uxZf03q3fkBU0a7uzS&amp;ust=1679145328989000&amp;source=images&amp;cd=vfe&amp;ved=0CA8QjRxqFwoTCND0ufyF4_0CFQAAAAAdAAAAABAE">here</a>. Freely available satellite data from satellites such as Landsat, SPOT and Sentinel can be utilized in this instance. More data about remote sensing and flood mapping can be found <a class="reference external" href="https://doi.org/10.1016/j.rsase.2022.100697">here</a>. An index known as the <a class="reference external" href="https://doi.org/10.3390/rs14236005">Normalized difference Water Index</a> (NDWI) can be utilized to delineate the flooded areas which creates a distinction between the water pixels and other land features in the area for easy mapping of pixels covered with water (Ogilvie et al.,2018)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="theory-of-ndwi">
+<h1>2. Theory of NDWI<a class="headerlink" href="#theory-of-ndwi" title="Permalink to this heading">#</a></h1>
+<p>The theoretical grounds of use of the NDWI are based on the face that the reflection from the chosen bands are significantly high enough to allow descrimination from background non water pixels. The science behind the use of the Normalized Difference Water Index (NDWI) for flood monitoring lies in its ability to exploit the spectral properties of water in satellite imagery. NDWI is based on the principle that water absorbs and scatters light differently compared to other land cover types, allowing for its differentiation and mapping.</p>
+<p>NDWI is typically calculated using the near-infrared (NIR) and green (G) bands of multispectral satellite imagery. These bands are sensitive to the reflectance characteristics of water. The formula for NDWI is as follows:</p>
+<p><font><center><span class="math notranslate nohighlight">\(NDWI = (NIR - G) / (NIR + G)\)</span><font/></p>
+<p>The resulting NDWI values range from -1 to +1, where higher positive values indicate a higher likelihood of water presence. Positive values correspond to the strong reflectance of NIR light by water and the absorption of G light. On the other hand, negative values indicate the dominance of land cover types with high reflectance in the green band. In flood monitoring, NDWI is applied to satellite imagery captured during and after flood events. By calculating NDWI values for each pixel in the imagery, areas with high positive NDWI values can be identified as potential water bodies. These areas can be further analyzed and classified to determine the extent and boundaries of the flood.</p>
+<p>NDWI is particularly effective in flood monitoring due to its sensitivity to water content and its ability to differentiate water bodies from other land cover types. It enables the detection of flooded areas, even when they are partially covered by vegetation or in urban environments. Additionally, NDWI allows for the monitoring of flood dynamics over time by comparing NDWI values from different satellite images captured during different phases of the flood event (Memon et al., 2015).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tools-used-to-process-raster-data">
+<h1>3. Tools used to process raster data<a class="headerlink" href="#tools-used-to-process-raster-data" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.arcgis.com/index.html">ArcGIS</a></p></li>
+<li><p><a class="reference external" href="https://qgis.org/en/site/">QGIS</a></p></li>
+</ol>
+<p style="text-align: justify;">With high end commercial and freely available software, anybody can typically do such analysis. Commercial software such as ArcMap and matlab cab be used to work with the raster from the satellites. And i cases whether the user does not have access to such commercial software, other freely available software such as QGis aand Python can be used to process the rasters. The main method of producing such data to monitor these flooded areas makes use of the Normalized Difference vegetation Index. This reporsetory would like to stick to use of Landsat imagery to do flood monitoring using the NDWI, by using Band3 (Green) and Band5 (Near infrared).<p><p><a class="reference external" href="https://www.arcgis.com/index.html"><img src=https://upload.wikimedia.org/wikipedia/commons/d/df/ArcGIS_logo.png
+     align="left"
+     width="340"/></a></p>
+<p><a class="reference external" href="https://qgis.org/en/site/"><img src=https://qgis.org/id/_images/main_logo.png
+     align="right"
+     width="580" /></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="satellite-data-sources-landsat">
+<h1>4. Satellite data sources - Landsat<a class="headerlink" href="#satellite-data-sources-landsat" title="Permalink to this heading">#</a></h1>
+<p>Global freely avaialable satellite data can be retrieved from the <a class="reference external" href="https://earthexplorer.usgs.gov/">United States Geological Survey</a> website where users can choose from Landst1 to the latest mission Landsat 9. For the calculation of the NDVI we only require the Green and Near Infrared band.</p>
+<p>Access to data</p>
+<section id="downloading-from-usgs-website">
+<h2>4.1 Downloading from USGS website<a class="headerlink" href="#downloading-from-usgs-website" title="Permalink to this heading">#</a></h2>
+<p>To download data from the site, users have to create a free account and then choose the desiredd data sets and time perod of the data set. More details on how to create an account and download the data can be gathered from the following <a class="reference external" href="https://www.google.com/search?q=how+to+download+landsat+data&amp;sxsrf=AJOqlzXtHjXEki4aKFgU2bCiTm-eZQG9hA:1679058128909&amp;source=lnms&amp;tbm=vid&amp;sa=X&amp;ved=2ahUKEwiKpdL6guP9AhWscWwGHT6NA-4Q_AUoAXoECAEQAw&amp;biw=1440&amp;bih=749&amp;dpr=1#fpstate=ive&amp;vld=cid:59fbaa17,vid:UuE8tFYz6q0">Youtube video</a></p>
+</section>
+<section id="use-of-amazon-web-services">
+<h2>4.2 Use of Amazon web services<a class="headerlink" href="#use-of-amazon-web-services" title="Permalink to this heading">#</a></h2>
+<p>Depending on the satellite data used, <a class="reference external" href="https://aws.amazon.com/">amazon web services</a> can be used to enable cloud access of the satellite imagery without the need for users to actually download the dat into their computers which enables easier access from any internet connected device from anywhere. Unfortunetely for landsat imagery, such services require access by payment from the amazon web services, but for other satellite data like sentinel 1, such data can be access without payment or user login (Amazon web services, 2023)</p>
+<p>The below list shows some of the satellite data which is freely available from designated sites:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://earthexplorer.usgs.gov/">All Landsat missions</a></p></li>
+<li><p><a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-1">Sentinel 1</a></p></li>
+<li><p><a class="reference external" href="https://www.goes.noaa.gov/">NOAA GOES 16, 17 and 18</a></p></li>
+<li><p><a class="reference external" href="https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-2">Sentinel 2</a></p></li>
+</ol>
+<p>The below will be some of those which can also be accessed through the cloud from Amazon Web Services;</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://registry.opendata.aws/deafrica-landsat/">Landsat Collection 2 Level 2</a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/sentinel-1/">Sentinel-1 dataset for South and Southeast Asia, Taiwan, Korea and Japan</a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/sentinel-2/">Sentinel-2</a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/noaa-goes/">NOAA GOES 16, 17 and 18</a></p></li>
+<li><p><a class="reference external" href="https://registry.opendata.aws/sentinel-2-l2a-cogs/">Sentinel-2 and Cloud-Optimized Geo TIFFs</a></p></li>
+</ol>
+</section>
+<section id="more-access-to-geographic-data">
+<h2>4.3 More access to geographic data<a class="headerlink" href="#more-access-to-geographic-data" title="Permalink to this heading">#</a></h2>
+<p>Users can make use of freely available earth imagery to get a closer view of study areas they may choose to study for flooding using google earth platform. Once users have geographic coordinates of the places they seek to study, they can enter their central coordinates to get access to a satellite view of that particular study area. Users can resort to free <a class="reference external" href="https://earth.google.com/web/&#64;-14.62215403,40.72239142,-905.7062883a,22253247.99192051d,35y,360h,0t,0r">Google earth</a> services to get a better view with much more options and more tools</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="calculating-ndwi-in-arcgis">
+<h1>5. Calculating NDWI in ArcGIS<a class="headerlink" href="#calculating-ndwi-in-arcgis" title="Permalink to this heading">#</a></h1>
+<p>The following will briefly lay out the methodology of calculating the NDWI using ArcGis using the green and near infrared band.
+<img src="./images/Export Graphic.png"
+     width="400"
+     />
+The steps can be summarized as below after adding the raster data:</p>
+<ol class="arabic simple">
+<li><p><font color=blue><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/analyze/managing-tools-and-toolboxes/using-the-arctoolbox-window.htm">Arctool box</a></p></li>
+<li><p><font color=geen> <a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/accessing-the-spatial-analyst-toolbox.htm">Spatial analyst tools</a></p></li>
+<li><p><font color=red> <a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/map-algebra/what-is-map-algebra.htm">Map algebra</a></p></li>
+<li><p><font color=black> <a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/raster-calculator.htm">Raster calculater</a><font></p></li>
+</ol>
+<p>The addition of the float in the formula is because the NDWI gives value between 1 and -1 and so their floating point values.</p>
+<section id="center-ndwi-float-band3-band5-float-band3-band5-center">
+<h2><center><span class="math notranslate nohighlight">\(NDWI = float(Band3 - Band5) / float(Band3 + Band5)\)</span><center><a class="headerlink" href="#center-ndwi-float-band3-band5-float-band3-band5-center" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="calculating-ndwi-in-qgis">
+<h1>6. Calculating NDWI in QGis<a class="headerlink" href="#calculating-ndwi-in-qgis" title="Permalink to this heading">#</a></h1>
+<p>The following will briefly lay out the procedure for calculating theNDWI using freely availablle QGis using the Green and Near Infrared bands.
+After adding the raster data the <a class="reference external" href="https://docs.qgis.org/3.22/en/docs/user_manual/working_with_raster/raster_analysis.html">Raster calculator</a> can be used to do the NDWI calculationand this can be accessed from the QGis tab. Thereafter you can enter the bands to be used and the output raster location and choose the color of the output map as desired.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="generated-results">
+<h1>7. Generated results<a class="headerlink" href="#generated-results" title="Permalink to this heading">#</a></h1>
+<p>The data set use for the analysis was from a flood event in Sri Lanka on 18 May 2016 as captured by the Landsat 8 satellite on the same date mentined. The Landsat data used is is as below, for before and after flood event:</p>
+<ol class="arabic simple">
+<li><p>LC08_L1TP_141055_20160502_20200907_02_T1</p></li>
+<li><p>LC08_L1TP_141055_20160518_20200907_02_T1</p></li>
+</ol>
+<p>The results below show the maps of the generated NDWI from landsat 8 data. The first row of image resultswill be those generated by QGis. the details of the color classes are described below the maps. On the second row is the same data set but calculated using a commercial tool of ArcGis. As can be seen from the maps generated, the same results could be derived from both free and open QGis and commercial ArcGIS and these would show some of the high standards that open tools have and can peform as mush as commercial tools. In order to show a better result of the inundated pixels, the exercise chose to classify the pixels for better understation using same number of classes for both ArcGIS and QGis results.</p>
+<section id="results-from-arcgis">
+<h2>Results from ArcGIS<a class="headerlink" href="#results-from-arcgis" title="Permalink to this heading">#</a></h2>
+<p><img src="./images/before_flood_ArcGIS.png"
+     align="left"
+     width="250" />
+<img src='./images/after_flood_ArcGIS.png'
+     align="right"
+     width="250" />
+<img src='./images/before_and_after_flood_overlay.png'
+     align="center"
+     width="250" /></p>
+<p><img src="./images/legend3.png"
+     align="left"
+     width="200" /></p>
+</section>
+<section id="results-from-qgis">
+<h2>Results from QGIS<a class="headerlink" href="#results-from-qgis" title="Permalink to this heading">#</a></h2>
+<p><img src="./images/before_flood_QGIS.png"
+     align="left"
+     width="250" />
+<img src="./images/after_flood_QGIS.png"
+     align="right"
+     width="250" />
+<img src="./images/before_and_after_flood_overlay_QGIS.png"
+     align="center"
+     width="250" /></p>
+<p><img src="./images/legend3.png"
+     align="left"
+     width="200" /></p>
+</section>
+<section id="total-area-of-flood-pixels">
+<h2>Total area of flood pixels<a class="headerlink" href="#total-area-of-flood-pixels" title="Permalink to this heading">#</a></h2>
+<p>The area under inundation can be seen by overlaying the imagery from past non flooded days into the imagery of flooded days to find the total extent of the flooded areas.</p>
+<p>Another method would be to find the total area of the flooded pixels, the total number of pixels in the water area which would be derived from the raster data and these can be multiplied by the resolution of the imagery which is 30 m by 30 m for the landsat imagery. The size of the each cell can be retrieved from the raster layer properties under sourse and cell size. This can be achieved by using the Iso Cluster Unsupervised Classification provided in raster processing tools or software.</p>
+</section>
+<section id="center-total-water-area-number-of-water-pixels-30-m-30-m-center">
+<h2><center><span class="math notranslate nohighlight">\(Total\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(area\)</span> <span class="math notranslate nohighlight">\(=\)</span> <span class="math notranslate nohighlight">\(number\)</span> <span class="math notranslate nohighlight">\(of\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(pixels\)</span><span class="math notranslate nohighlight">\(*(30 m*30 m)\)</span><center><a class="headerlink" href="#center-total-water-area-number-of-water-pixels-30-m-30-m-center" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="discussion">
+<h1>8. Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h1>
+<p>The NDWI is a widely used remote sensing index for flood events. NDWI leverages the spectral characteristics of water in near-infrared (NIR) and green (G) bands to differentiate water from other land cover types. By quantifying the water content in an area, the NDWI can provide valuable insights into the extent and dynamics of floods.</p>
+<p>One of the significant advantages of NDWI is its ability to utilize freely available Landsat satellite data, which has been made accessible through open science practices. Landsat satellites provide consistent and high-quality multispectral imagery, allowing for long-term monitoring and analysis of flood events. Open science practices, such as data sharing and open-source software, have facilitated the widespread adoption of NDWI and enhanced collaboration among researchers and practitioners (Zheng et al., 2015)</p>
+<p>The use of NDWI in flood monitoring offers several benefits. First, it enables the identification and delineation of water bodies, aiding in flood extent mapping and flood risk assessment. The index can be applied to multiple satellite images captured over time to monitor the progression of flood events and assess changes in water levels. This information is crucial for disaster management and emergency response planning.</p>
+<p>Furthermore, the use of open science practices for Landsat data promotes transparency and reproducibility. Researchers can freely access and analyze Landsat data, ensuring the transparency of data sources and methodologies. Open-source software, such as QGIS or commercial ones like ArcGIS, provides powerful tools for processing and analyzing large-scale satellite imagery, making it accessible to a broader community of users.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
+<h1>9. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
+<p>In conclusion, NDWI, coupled with open science practices for Landsat data, plays a vital role in flood monitoring. It enables accurate and timely assessment of flood events, supports decision-making processes, and fosters collaboration among researchers and stakeholders. The use of NDWI and open science practices contributes to more effective and informed flood management strategies, enhancing our understanding of these natural disasters and facilitating resilience in flood-prone regions. Ultimately, the use of NDWI from Landsat 8 within the framework of open science principles provides a robust foundation for evidence-based decision making, sustainable water management practices, and informed policy development. It enables a broader community of researchers, policymakers, and stakeholders to actively engage in water resource studies and collectively work towards the preservation and sustainable use of water resources.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references-and-further-reads">
+<h1>10. References and further reads<a class="headerlink" href="#references-and-further-reads" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Gorelick, N.; Hancher, M.; Dixon, M.; Ilyushchenko, S.; Thau, D.; Moore, R. Google Earth Engine: Planetary-Scale Geospatial
+Analysis for Everyone. Remote Sens. Environ. 2017, 202, 18–27.</p></li>
+<li><p>Hardy, A.; Oakes, G.; Ettritch, G. Tropical Wetland (TropWet) Mapping Tool: The Automatic Detection of Open and Vegetated
+Waterbodies in Google Earth Engine for Tropical Wetlands. Remote Sens. 2020, 12, 1182.</p></li>
+<li><p>Inman, V.L.; Lyons, M.B. Automated Inundation Mapping over Large Areas Using Landsat Data and Google Earth Engine.
+Remote Sens. 2020, 12, 1348.</p></li>
+<li><p>Li, J.; Tooth, S.; Zhang, K.; Zhao, Y. Visualisation of Flooding along an Unvegetated, Ephemeral River Using Google Earth Engine: Implications for Assessment of Channel-Floodplain Dynamics in a Time of Rapid Environmental Change. J. Environ. Manag.
+2021, 278, 111559.</p></li>
+<li><p>Huang, C.; Chen, Y.; Zhang, S.; Li, L.; Shi, K.; Liu, R. Surface water mapping from suomi NPP-VIIRS imagery at 30 m resolution via blending with Landsat data. Remote Sens. 2016, 8.</p></li>
+<li><p>Laben, C.A.; Brower, B.V. Process for Enhancing the Spatial Resolution of Multispectral Imagery using PanSharpening. Available online: <a class="reference external" href="http://www.google.com/patents/US6011875">http://www.google.com/patents/US6011875</a> (accessed on 1 June 2023).</p></li>
+<li><p>eCognition Developer 9. Available online: <a class="reference external" href="http://www.ecognition.com/suite/ecognition-developer">http://www.ecognition.com/suite/ecognition-developer</a> (accessed on 12 June 2017).</p></li>
+<li><p>Ji, L.; Zhang, L.; Wylie, B. Analysis of dynamic thresholds for the Normalized Difference Water Index. Photogramm. Eng. Remote Sens. 2009, 75, 1307–1317.</p></li>
+<li><p>Zheng, Y.; Jeon, B.; Xu, D.; Wu, Q.M.; Zhang, H. Image segmentation by generalized hierarchical fuzzy C-means algorithm. J. Intell. Fuzzy Syst. 2015, 28, 961–973.</p></li>
+<li><p>Sezgin, M. Survey over image thresholding techniques and quantitative performance evaluation. J. Electron. Imaging 2004, 13, 146–168.</p></li>
+<li><p>Otsu, N. A threshold selection method from gray-level histograms. Automatica 1975, 11, 23–27.</p></li>
+<li><p>Yen, J.C.; Chang, F.J.; Chang, S. A New Criterion for Automatic Multilevel Thresholding. IEEE Trans. Image Process. 1995, 4, 370–378.</p></li>
+<li><p>United States Geological Survey. Available Online: <a class="reference external" href="https://earthexplorer.usgs.gov/">https://earthexplorer.usgs.gov/</a> (Accessed 25 April 2023)</p></li>
+<li><p>Schumann, G.J.-P.; Brakenridge, G.R.; Kettner, A.J.; Kashif, R.; Niebuhr, E. Assisting Flood Disaster Response with Earth Observation Data and Products: A Critical Assessment. Remote Sens. 2018, 10, 1230.</p></li>
+<li><p>Buma, W.G.; Lee, S.-I.; Seo, J.Y. Recent Surface Water Extent of Lake Chad from Multispectral Sensors and GRACE. Sensors 2018, 18, 2082.</p></li>
+<li><p>Liu, D.; Li, Y. Extraction of Water-Body in Remote Sensing Image Based on Logic Operation. In Proceedings of the 2011 19th International Conference on Geoinformatics, Shanghai, China, 24–26 June 2011; pp. 1–4.</p></li>
+<li><p>Rokni, K.; Ahmad, A.; Selamat, A.; Hazini, S. Water Feature Extraction and Change Detection Using Multitemporal Landsat Imagery. Remote Sens. 2014, 6, 4173–4189.</p></li>
+<li><p>Ogilvie, A.; Belaud, G.; Massuel, S.; Mulligan, M.; Le Goulven, P.; Calvez, R. Surface Water Monitoring in Small Water Bodies: Potential and Limits of Multi-Sensor Landsat Time Series. Hydrol. Earth Syst. Sci. 2018, 22, 4349–4380.</p></li>
+<li><p>Asmadin; Siregar, V.P.; Sofian, I.; Jaya, I.; Wijanarto, A.B. Feature Extraction of Coastal Surface Inundation via Water Index Algorithms Using Multispectral Satellite on North Jakarta. IOP Conf. Ser. Earth Environ. Sci. 2018, 176, 12032.</p></li>
+<li><p>Ireland, G.; Volpi, M.; Petropoulos, G.P. Examining the Capability of Supervised Machine Learning Classifiers in Extracting Flooded Areas from Landsat TM Imagery: A Case Study from a Mediterranean Flood. Remote Sens. 2015, 7, 3372–3399.</p></li>
+<li><p>Memon, A.A.; Muhammad, S.; Rahman, S.; Haq, M. Flood Monitoring and Damage Assessment Using Water Indices: A Case Study of Pakistan Flood-2012. Egypt. J. Remote Sens. Space Sci. 2015, 18, 99–106.</p></li>
+<li><p>Amazon web services. Available online: <a class="reference external" href="https://registry.opendata.aws/">https://registry.opendata.aws/</a> (Accessed 15 May 2023)</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>Documentation On Working With Normalized Difference Water Index In QGis and ArcGIS For Flood Monitoring And Its Higlights On Open And Fair Science Practices<center></center></center></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-science-highlights">Open science highlights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contant">Table Of Contant</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#theory-of-ndwi">2. Theory of NDWI</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-used-to-process-raster-data">3. Tools used to process raster data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-data-sources-landsat">4. Satellite data sources - Landsat</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-from-usgs-website">4.1 Downloading from USGS website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-amazon-web-services">4.2 Use of Amazon web services</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-access-to-geographic-data">4.3 More access to geographic data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-ndwi-in-arcgis">5. Calculating NDWI in ArcGIS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#center-ndwi-float-band3-band5-float-band3-band5-center"><center><span class="math notranslate nohighlight">\(NDWI = float(Band3 - Band5) / float(Band3 + Band5)\)</span><center></center></center></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-ndwi-in-qgis">6. Calculating NDWI in QGis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generated-results">7. Generated results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-from-arcgis">Results from ArcGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-from-qgis">Results from QGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-area-of-flood-pixels">Total area of flood pixels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#center-total-water-area-number-of-water-pixels-30-m-30-m-center"><center><span class="math notranslate nohighlight">\(Total\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(area\)</span> <span class="math notranslate nohighlight">\(=\)</span> <span class="math notranslate nohighlight">\(number\)</span> <span class="math notranslate nohighlight">\(of\)</span> <span class="math notranslate nohighlight">\(water\)</span> <span class="math notranslate nohighlight">\(pixels\)</span><span class="math notranslate nohighlight">\(*(30 m*30 m)\)</span><center></center></center></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">8. Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references-and-further-reads">10. References and further reads</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kolunga
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
