@@ -28,7 +28,7 @@ jobs:
         
     - name: Copy images
       run: |
-        cp -r images _build/html/images
+        cp -r images/* _build/html/images/
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
